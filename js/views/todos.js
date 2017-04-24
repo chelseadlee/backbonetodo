@@ -70,7 +70,7 @@ app.TodoView = Backbone.View.extend({
 		this.model.toggle();
 	},
 
-	// Switch this view into '"editing"' mode, displaying the input field. 
+	// Switch this view into '"editing"' mode, displaying the input field.
 	edit: function() {
 		this.$el.addClass('editing');
 		this.$input.focus();
@@ -82,6 +82,8 @@ app.TodoView = Backbone.View.extend({
 
 		if ( value ) {
 			this.model.save({ title: value });
+		} else {
+			this.clear();
 		}
 
 		this.$el.removeClass('editing');
